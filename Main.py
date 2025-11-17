@@ -24,7 +24,7 @@ birthday_entries = int(input(" Enter Amount of Birthday Entries : "))
 # Loops through the number of entries entered. Gathers name and birthday from user input
 for i in range(birthday_entries):
     name = input("Enter name : ")
-    Date = input ("Enter Birthday : ")
+    Date = date(input ("Enter Birthday : "))
     Birthdays[name] = Date
 
     
@@ -35,6 +35,8 @@ def age_conversion(Birthdays):
 
     if (today.month, today.day) < (Birthdays.Month, Birthdays.day):
         age -= 1
+
+#age = age_conversion(Birthdays)
 
 print(" Dictionary Contents:    ", Birthdays)
 print(" Your are ", age, "Years old !")
