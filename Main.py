@@ -12,7 +12,7 @@ from datetime import date
 if os.name == ("nt") :
     _ = os.system("cls")
 
-# Creates dictionary Conatinig Birthday Dates 
+# Creates dictionary Containing Birthday Dates 
 Birthdays = {}
 
 #Creats a dicionary to contain age of Person
@@ -23,14 +23,25 @@ birthday_entries = int(input(" Enter Amount of Birthday Entries : "))
 
 # Loops through the number of entries entered. Gathers name and birthday from user input
 for i in range(birthday_entries):
-    name = input("Enter name : ")
-    Date = date(input ("Enter Birthday : "))
+    name = input(" Enter name : ")
+    Date = (input(" Enter Birthday in Current Format: YYYY-MM-DD "))
     Birthdays[name] = Date
 
-    
+# Checks to see if the user Input is fromatted correctly to be handled 
+try: 
+    date = date.strptime(date,"%Y/%m/%d")
+    print ("You Entered: {date} ")
+    print (" Birth Year : {date.year}")
+    print (" Birth Month : {date.Month}")
+    print (" Birth Day : {date.day}")
+
+except ValueError:
+    print(" Incorrect date formate. Please use YYYY/MM/DD ")
+
+
 # function to Calculate age 
 def age_conversion(Birthdays):   
-    today = date.today()1
+    today = date.today()
     age = today.year - Birthdays.year
 
     if (today.month, today.day) < (Birthdays.Month, Birthdays.day):
